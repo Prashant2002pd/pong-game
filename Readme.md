@@ -32,7 +32,7 @@ These instructions will help you get a copy of the project up and running on you
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/pong-game.git
+   https://github.com/Prashant2002pd/pong-game.git
    ```
 
 2. Build the game:
