@@ -21,17 +21,19 @@ class Ball{
      void draw(){
          DrawCircle(x,y,radius,yellow);
      }
-     void update(){
+     void update(Sound sound){
       if(y + radius >= GetScreenHeight() || y-radius<=0){
         speed_y*=-1;
       }
       if(x + radius >=GetScreenWidth())
       {
+        PlaySound(sound);
         cpu_score++;
         Resetball();
       }
       
       if( x-radius<=0){
+        PlaySound(sound);
         player_score++;
         Resetball();
       }
@@ -131,7 +133,10 @@ int main () {
 
       //main logic
       InitWindow(window_width,window_height,"pong game!!");
+      InitAudioDevice();
       SetTargetFPS(60);
+      Sound sound = LoadSound("sounds/ball.wav");
+      Sound payer_win = LoadSound("sounds/player-win.mp3");
       while (!WindowShouldClose())
       {
         BeginDrawing();
@@ -139,7 +144,7 @@ int main () {
       pause=!pause;
         //update
         if(!pause){
-        ball.update();
+        ball.update(payer_win);
         paddle.update();
         cpu_paddle.update(ball.y);
         }
@@ -148,6 +153,7 @@ int main () {
           if(ball.speed_x>0){
               ball.speed_x*=-1.1f;
               ball.speed_y=(ball.y-paddle.y)/(paddle.height/2)*ball.speed_x;
+              PlaySound(sound);
               
           }
           
@@ -157,6 +163,7 @@ int main () {
            if(ball.speed_x<0){
               ball.speed_x*=-1.1f;
                ball.speed_y=(ball.y-cpu_paddle.y)/(cpu_paddle.height/2)* - ball.speed_x;
+               PlaySound(sound);
           }
         }
 
@@ -171,13 +178,15 @@ int main () {
         DrawText(TextFormat("%i",player_score),3*window_width/4-20,20,80,WHITE);
         if(pause)
         DrawText("Paused",window_width/2.5,window_height/2,80,WHITE);
+
         EndDrawing();
       }
       
       
 
-
-
+     UnloadSound(sound);
+     UnloadSound(payer_win);
+     CloseAudioDevice();
     CloseWindow();
     return 0;
 }
