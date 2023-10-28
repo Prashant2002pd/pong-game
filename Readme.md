@@ -50,7 +50,7 @@ These instructions will help you get a copy of the project up and running on you
 
 ## How to Play
 
-- Player 1 (right paddle) uses the **UP ARROW KEY** and **DOWN ARROW KEY** keys to move up and down, respectively.
+- Player 1 (right paddle) uses the mouse to move up and down.
 - In single-player mode, the bot controls Player 2 (left paddle).
 - You can also pause the game by using the **SPACE KEY** .
 
