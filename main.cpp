@@ -105,8 +105,8 @@ Cpu_paddle cpu_paddle;
 int main () {
       
       
-      const int window_height=800;
-      const int window_width=1280;
+      const int window_height=600;
+      const int window_width=980;
 
       //ball values
       ball.x=window_width/2;
