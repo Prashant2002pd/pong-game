@@ -68,11 +68,11 @@ int speed_y;
       void draw(){
            DrawRectangleRounded(Rectangle{x,y,width,height},0.8,0,WHITE);
       }
-      void update(){
-           if(IsKeyDown(KEY_UP)){
+      void update(float mouse_y){
+           if(y+height/2>mouse_y){
             y-=speed_y;
            }
-           if (IsKeyDown(KEY_DOWN))
+           if (y+height/2<=mouse_y)
            {
               y+=speed_y;
            }
@@ -120,14 +120,14 @@ int main () {
       paddle.y=window_height/2-60;
       paddle.height=120;
       paddle.width=25;
-      paddle.speed_y=7;
+      paddle.speed_y=10;
 
       //cpu paddle valeu
       cpu_paddle.width=25;
       cpu_paddle.height=120;
       cpu_paddle.x=10;
       cpu_paddle.y=window_height/2 - cpu_paddle.height/2;
-      cpu_paddle.speed_y=7;
+      cpu_paddle.speed_y=10;
 
       
 
@@ -145,7 +145,7 @@ int main () {
         //update
         if(!pause){
         ball.update(payer_win);
-        paddle.update();
+        paddle.update(GetMouseY());
         cpu_paddle.update(ball.y);
         }
         //collisions

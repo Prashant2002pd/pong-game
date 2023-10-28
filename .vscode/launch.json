@@ -60,8 +60,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/prashant/Desktop/prashant/games/Raylib-CPP-Starter-Template-for-VSCODE-main/pong",
-      "program": "c:/Users/prashant/Desktop/prashant/games/Raylib-CPP-Starter-Template-for-VSCODE-main/pong/build/Debug/outDebug",
+      "cwd": "c:/Users/prashant/Desktop/prashant/games/pong",
+      "program": "c:/Users/prashant/Desktop/prashant/games/pong/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
